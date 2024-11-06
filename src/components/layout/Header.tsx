@@ -24,18 +24,18 @@ export default function Header() {
           <Link to="/" className="text-sm font-medium hover:text-primary">
             Home
           </Link>
+          <Link to="/about" className="text-sm font-medium hover:text-primary">
+            About
+          </Link>
           <Link to="/blog" className="text-sm font-medium hover:text-primary">
             Blog
           </Link>
           <Link to="/projects" className="text-sm font-medium hover:text-primary">
             Projects
           </Link>
-          <Link to="/about" className="text-sm font-medium hover:text-primary">
-            About
-          </Link>
-          <Link to="/newsletter" className="text-sm font-medium hover:text-primary">
+          {/* <Link to="/newsletter" className="text-sm font-medium hover:text-primary">
             Newsletter
-          </Link>
+          </Link> */}
         </nav>
         <div className="flex items-center gap-2">
           <Button
