@@ -1,12 +1,32 @@
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostGrid from '../components/blog/PostGrid'
 import { Button } from '../components/ui/button'
 import { Code2, Brain, Cloud, Briefcase, MessageSquareCode, Github, ArrowRight } from 'lucide-react'
+import postApi, { type Post } from '../api/postApi'
 
 export default function Home() {
   const latestPostsRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
+  const [posts, setPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await postApi.getPosts()
+        setPosts(response.data)
+      } catch (err) {
+        setError('Failed to fetch posts')
+        console.error('Error fetching posts:', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchPosts()
+  }, [])
 
   const scrollToLatestPosts = () => {
     latestPostsRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -45,7 +65,6 @@ export default function Home() {
     }
   ]
 
-
   return (
     <div className="min-h-screen">
       {/* Hero Section with Animated Background */}
@@ -54,7 +73,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto py-32 flex flex-col items-center">
             <div className="animate-fade-in space-y-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 Welcome to Kirubel's 
                 <span className="block bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
                   Blog Collection 
@@ -112,7 +131,13 @@ export default function Home() {
               <h2 className="text-3xl font-bold">Latest Articles</h2>
               <p className="text-muted-foreground">Fresh insights and tutorials</p>
             </div>
-            <PostGrid showHeading={false} />
+            {isLoading ? (
+              <p className="text-center">Loading posts...</p>
+            ) : error ? (
+              <p className="text-center text-destructive">{error}</p>
+            ) : (
+              <PostGrid posts={posts} showHeading={false} />
+            )}
           </div>
         </div>
       </section>

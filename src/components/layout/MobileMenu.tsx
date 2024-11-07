@@ -1,15 +1,14 @@
-// src/components/layout/MobileMenu.tsx
-import { X } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { Button } from '../ui/button'
+import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
 
 interface MobileMenuProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-background z-50 md:hidden">
@@ -35,5 +34,5 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
       </div>
     </div>
-  )
+  );
 }

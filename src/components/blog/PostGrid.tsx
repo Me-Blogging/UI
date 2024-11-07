@@ -1,23 +1,13 @@
-// src/components/blog/PostGrid.tsx
-import PostCard from './PostCard'
-import Pagination from './Pagination'
+import PostCard from './PostCard';
+import Pagination from './Pagination';
+import type { Post } from '../../api/postApi';
 
-const posts = [
-  {
-    title: "UX review presentations",
-    excerpt: "How do you create compelling presentations that wow your colleagues and impress your managers?",
-    author: "Olivia Rhye",
-    date: "1 Jan 2023",
-    image: "/images/placeholder.jpg",
-    categories: ["Design", "Research", "Presentation"],
-    slug: "ux-review-presentations"
-  },
-  // Add more posts...
-]
 interface PostGridProps {
-  showHeading?: boolean
+  showHeading?: boolean;
+  posts: Post[];
 }
-export default function PostGrid({ showHeading = true }: PostGridProps) {
+
+export default function PostGrid({ showHeading = true, posts }: PostGridProps) {
   return (
     <section>
       {showHeading && (
@@ -25,10 +15,10 @@ export default function PostGrid({ showHeading = true }: PostGridProps) {
       )}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
+          <PostCard key={post._id} post={post} />
         ))}
       </div>
       <Pagination className="mt-12" />
     </section>
-  )
+  );
 }

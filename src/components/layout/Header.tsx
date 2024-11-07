@@ -1,18 +1,31 @@
-// src/components/layout/Header.tsx
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Moon, Sun, Menu } from 'lucide-react'
-import { Button } from '../ui/button'
-import MobileMenu from './MobileMenu'
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
+import { Sun, Moon, Menu } from 'lucide-react';
+import MobileMenu from './MobileMenu';
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDark, setIsDark] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   const toggleDarkMode = () => {
-    setIsDark(!isDark)
-    document.documentElement.classList.toggle('dark')
-  }
+    setIsDark((prev) => {
+      const newMode = !prev;
+      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', newMode);
+      return newMode;
+    });
+  };
 
   return (
     <header className="border-b">
@@ -21,42 +34,20 @@ export default function Header() {
           Kirubel's Blog
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium hover:text-primary">
-            Home
-          </Link>
-          <Link to="/about" className="text-sm font-medium hover:text-primary">
-            About
-          </Link>
-          <Link to="/blog" className="text-sm font-medium hover:text-primary">
-            Blog
-          </Link>
-          <Link to="/projects" className="text-sm font-medium hover:text-primary">
-            Projects
-          </Link>
-          {/* <Link to="/newsletter" className="text-sm font-medium hover:text-primary">
-            Newsletter
-          </Link> */}
+          <Link to="/" className="text-sm font-medium hover:text-primary">Home</Link>
+          <Link to="/about" className="text-sm font-medium hover:text-primary">About</Link>
+          <Link to="/blog" className="text-sm font-medium hover:text-primary">Blog</Link>
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleDarkMode}
-            className="hidden md:inline-flex"
-          >
+          <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="hidden md:inline-flex">
             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(true)}
-          >
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
             <Menu className="h-5 w-5" />
           </Button>
         </div>
       </div>
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
-  )
+  );
 }
