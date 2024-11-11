@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostGrid from '../components/blog/PostGrid'
 import { Button } from '../components/ui/button'
-import { Code2, Brain, Cloud, Briefcase, MessageSquareCode, Github, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import postApi, { type Post } from '../api/postApi'
 
 export default function Home() {
@@ -32,39 +32,6 @@ export default function Home() {
     latestPostsRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const topics = [
-    {
-      icon: <Code2 className="h-6 w-6" />,
-      title: 'Web Development',
-      description: 'Modern web development practices and technologies'
-    },
-    {
-      icon: <Brain className="h-6 w-6" />,
-      title: 'Programming',
-      description: 'Software engineering principles and best practices'
-    },
-    {
-      icon: <Cloud className="h-6 w-6" />,
-      title: 'Cloud Computing',
-      description: 'AWS and other cloud platforms'
-    },
-    {
-      icon: <Briefcase className="h-6 w-6" />,
-      title: 'Career Advice',
-      description: 'Tips and insights for tech careers'
-    },
-    {
-      icon: <MessageSquareCode className="h-6 w-6" />,
-      title: 'Telegrams Bots',
-      description: 'Building and deploying Telegram bots'
-    },
-    {
-      icon: <Github className="h-6 w-6" />,
-      title: 'Open Source',
-      description: 'Contributing to open source projects'
-    }
-  ]
-
   return (
     <div className="min-h-screen">
       {/* Hero Section with Animated Background */}
@@ -74,14 +41,13 @@ export default function Home() {
           <div className="max-w-4xl mx-auto py-32 flex flex-col items-center">
             <div className="animate-fade-in space-y-6 text-center">
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Welcome to Kirubel's 
-                <span className="block bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-                  Blog Collection 
+                Welcome to Kirubel's
+                <span className="block">
+                  Blog Collection
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Join me on a journey through software engineering, cloud computing, and everything in between.
-              </p>
+                A collection of blogs written by Kirubel Wondwoson. The blogs are about web development, programming, and also  topics.</p>
               <div className="flex gap-4 justify-center pt-4">
                 <Button size="lg" className="rounded-full group" onClick={() => navigate('/blog')}>
                   Read Blogs
@@ -97,27 +63,39 @@ export default function Home() {
       </div>
 
       {/* Topics Grid with Hover Effects */}
-      <section className="py-24">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16 space-y-2">
-              <h2 className="text-3xl font-bold">What do I write about?</h2>
-              <p className="text-muted-foreground">Dive into various topics across software development</p>
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2">
+              <img src="src/assets/cha-bg_hu6ccbcd044992bff2c1491035227e49b6_79650_1110x0_resize_q90_h2_lanczos_3.webp" alt="Description" className="w-3/4 h-auto" />
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {topics.map((topic) => (
-                <div key={topic.title} 
-                  className="group relative p-6 rounded-xl border bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative">
-                    <div className="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4">
-                      {topic.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{topic.title}</h3>
-                    <p className="text-muted-foreground">{topic.description}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="md:w-1/2 md:pl-8">
+              <h2 className="text-3xl font-bold mb-4">What do I write about?</h2>
+              <p className="text-muted-foreground mb-6">
+                I am a backend heavy developer, so I write about backend technologies. I also write about some frontend technologies, but not as much as I write about backend technologies. I also write about other tech-related topics.
+              </p>
+              <ul className="list-none pl-5">
+                <li className="flex items-center mb-4">
+                  <span className="text-lg">✔️</span>
+                  <span className="ml-2">Programming</span>
+                </li>
+                <li className="flex items-center mb-4">
+                  <span className="text-lg">✔️</span>
+                  <span className="ml-2">API development</span>
+                </li>
+                <li className="flex items-center mb-4">
+                  <span className="text-lg">✔️</span>
+                  <span className="ml-2">Spritual Exegesis</span>
+                </li>
+                <li className="flex items-center mb-4">
+                  <span className="text-lg">✔️</span>
+                  <span className="ml-2">Career Advice</span>
+                </li>
+                <li className="flex items-center mb-4">
+                  <span className="text-lg">✔️</span>
+                  <span className="ml-2">Open Source Contribution</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -128,7 +106,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 space-y-2">
-              <h2 className="text-3xl font-bold">Latest Articles</h2>
+              <h2 className="text-3xl font-bold">Latest Blogs</h2>
               <p className="text-muted-foreground">Fresh insights and tutorials</p>
             </div>
             {isLoading ? (
@@ -136,7 +114,7 @@ export default function Home() {
             ) : error ? (
               <p className="text-center text-destructive">{error}</p>
             ) : (
-              <PostGrid posts={posts} showHeading={false} />
+              <PostGrid posts={posts.slice(0, 3)} showHeading={false} />
             )}
           </div>
         </div>

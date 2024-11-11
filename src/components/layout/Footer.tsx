@@ -28,22 +28,22 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="flex items-center gap-6">
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" 
+            {/* <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" 
               className="text-muted-foreground hover:text-foreground transition-colors">
               <Twitter className="h-5 w-5" />
-            </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+            </a>             */}
+            <a href="https://github.com/Kirubel-wondwoson" target="_blank" rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://linkedin.com/in/kirubel-wondwoson-196034293" target="_blank" rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer"
+            {/* <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors">
               <Instagram className="h-5 w-5" />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
