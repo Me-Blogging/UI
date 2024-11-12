@@ -1,5 +1,5 @@
 import PostCard from './PostCard';
-import Pagination from './Pagination';
+// import Pagination from './Pagination';
 import type { Post } from '../../api/postApi';
 
 interface PostGridProps {
@@ -18,7 +18,7 @@ export default function PostGrid({ showHeading = true, posts }: PostGridProps) {
           <PostCard key={post._id} post={post} />
         ))}
       </div>
-      <Pagination className="mt-12" />
+      {/* <Pagination className="mt-12" /> */}
     </section>
   );
 }

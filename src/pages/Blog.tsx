@@ -15,7 +15,7 @@ export default function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await postApi.getPosts();
+        const response = await postApi.getPublishedPosts();
         setPosts(response.data);
         setFilteredPosts(response.data);
       } catch (err) {

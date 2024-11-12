@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '../ui/badge';
 import { Card, CardContent } from '../ui/card';
@@ -19,7 +20,7 @@ export default function PostCard({ post }: { post: Post }) {
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
           <span>{post.category}</span>
           <span>•</span>
-          <span>{post.date}</span>
+          <span>{new Date(post.date).toLocaleDateString()}</span>
         </div>
         <Link to={`/blog/${post._id}`} className="group">
           <h3 className="text-xl font-semibold mb-2 group-hover:text-primary">
@@ -29,7 +30,7 @@ export default function PostCard({ post }: { post: Post }) {
         <p className="text-muted-foreground mb-4">
           {post.content.slice(0, 150)}...
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map((tag) => (
             <Badge key={tag} variant="secondary">
               {tag}

@@ -22,9 +22,13 @@ interface PostsResponse {
 const postApi = {
   getPosts: () => 
     api.get<Post[]>('/post/getposts'),
-    
+  
+  getPublishedPosts: () => 
+    api.get<Post[]>('/post/getpublishedposts'),
+
   getPost: (postId: string) => 
-    api.get<Post>(`/post/getpost${postId}`),
+    api.get<Post>(`/post/getpost/${postId}`),
+  
 };
 
 export type { Post, PostsResponse };
