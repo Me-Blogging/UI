@@ -47,7 +47,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                A collection of blogs written by Kirubel Wondwoson. The blogs are about web development, programming, and also many Spiritual Exegesis.</p>
+                A collection of blogs written by Kirubel Wondwoson. The blogs are about web development, programming, and so many Spiritual Exegesis.</p>
               <div className="flex gap-4 justify-center pt-4">
                 <Button size="lg" className="rounded-full group" onClick={() => navigate('/blog')}>
                   Read Blogs
@@ -107,7 +107,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 space-y-2">
               <h2 className="text-3xl font-bold">Latest Blogs</h2>
-              <p className="text-muted-foreground">Fresh insights and tutorials</p>
+              <p className="text-muted-foreground">Explore newest posts and insights</p>
             </div>
             {isLoading ? (
               <p className="text-center">Loading posts...</p>

@@ -4,12 +4,13 @@ interface Post {
   _id: string;
   title: string;
   content: string;
+  htmlContent?: string; // Add this line
   picture: string;
+  file?: string;
   category: string;
   tags: string[];
-  status: string;
+  status: 'draft' | 'published';
   date: string;
-  file?: string;
 }
 
 interface PostsResponse {
@@ -29,6 +30,8 @@ const postApi = {
   getPost: (postId: string) => 
     api.get<Post>(`/post/getpost/${postId}`),
   
+  // getPost: (id: string) =>
+  //   axios.get<Post>(`/post/getpost/${id}`)
 };
 
 export type { Post, PostsResponse };

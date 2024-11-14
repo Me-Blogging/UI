@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Twitter, Github, Linkedin, Instagram } from 'lucide-react'
+import {Github, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -21,9 +21,9 @@ export default function Footer() {
             <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
               Blogs
             </Link>
-            <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            {/* <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact me
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Social Links */}
