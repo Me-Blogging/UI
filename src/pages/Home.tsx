@@ -114,7 +114,7 @@ export default function Home() {
             ) : error ? (
               <p className="text-center text-destructive">{error}</p>
             ) : (
-              <PostGrid posts={posts.slice(0, 3)} showHeading={false} />
+              <PostGrid posts={posts.slice(-3)} showHeading={false} />
             )}
           </div>
         </div>
