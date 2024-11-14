@@ -34,9 +34,9 @@ export default function Header() {
           Kirubel's Blogs
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium hover:text-primary">Home</Link>
+          <Link to="/" className="text-sm font-medium hover:text-primary ml-[-26px]">Home</Link>
           <Link to="/about" className="text-sm font-medium hover:text-primary">About</Link>
-          <Link to="/blog" className="text-sm font-medium hover:text-primary">Blog</Link>
+          <Link to="/blog" className="text-sm font-medium hover:text-primary mr-14">Blog</Link>
         </nav>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="hidden md:inline-flex">

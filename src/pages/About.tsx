@@ -6,7 +6,7 @@ export default function About() {
           <img
             alt="Profile"
             className="rounded-full object-cover"
-            src="src/assets/photo_2024-11-04_21-27-53.jpg" // Update with your image path
+            src="src/assets/photo_2024-11-04_21-27-53.jpg" 
             style={{
               aspectRatio: "128/128",
               objectFit: "cover",
@@ -19,8 +19,15 @@ export default function About() {
         </h1>
         
         <p className="text-lg leading-relaxed">
-          Hey there! 👋 I&apos;m Kirubel, a believer and creative developer. 
+          {/* Hey there! 👋 I&apos;m Kirubel, a believer and creative developer. 
           I&apos;m passionate about creating robust web applications and exploring new technologies. With experience in modern frameworks and API development, I strive to deliver quality solutions that meet user needs. Let&apos;s collaborate and build something amazing together! 😊 ✨
+
+          Hey there! 👋 I&apos;m Kirubel, a believer and backend developer. I'm passionate about quantum software development. And have a plan to deep dive into quantum computing frameworks like Qiskit. Beside all these technical things, I love writing Spiritual writing.😊 ✨
+
+          Hey there! I'm Kirubel, a backend developer with a passion for quantum computing and spiritual writing. */}
+
+          Hey there! 👋 I&apos;m Kirubel, a believer and creative developer. 
+          I&apos;m passionate about creating robust web applications and exploring new technologies. With experience in modern frameworks and API development. Beyond the technical realm, I find joy and inspiration in spiritual exploration. I enjoy writing about faith, hope, and love, and sharing my reflections with others.! 😊 ✨
         </p>
       </div>
     </div>

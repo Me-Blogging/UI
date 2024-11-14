@@ -72,7 +72,8 @@ export default function Home() {
             <div className="md:w-1/2 md:pl-8">
               <h2 className="text-3xl font-bold mb-4">What do I write about?</h2>
               <p className="text-muted-foreground mb-6">
-                I am a backend heavy developer, so I write about backend technologies. I also write about some frontend technologies, but not as much as I write about backend technologies. I also write about other tech-related topics.
+
+                I am a backend-focused developer, so I write about backend technologies, diving into APIs, databases, and server-side logic. Beyond tech, I also write about faith, hope, and love, sharing reflections on spirituality and life's deeper meaning. This blog is where I merge my passion for technology with my journey of personal and spiritual growth.
               </p>
               <ul className="list-none pl-5">
                 <li className="flex items-center mb-4">
@@ -81,16 +82,16 @@ export default function Home() {
                 </li>
                 <li className="flex items-center mb-4">
                   <span className="text-lg">✔️</span>
-                  <span className="ml-2">API development</span>
+                  <span className="ml-2">API development and server-side logics</span>
                 </li>
                 <li className="flex items-center mb-4">
                   <span className="text-lg">✔️</span>
-                  <span className="ml-2">Spritual Exegesis</span>
+                  <span className="ml-2">Spritual doctines and reflections</span>
                 </li>
-                <li className="flex items-center mb-4">
+                {/* <li className="flex items-center mb-4">
                   <span className="text-lg">✔️</span>
                   <span className="ml-2">Career Advice</span>
-                </li>
+                </li> */}
                 <li className="flex items-center mb-4">
                   <span className="text-lg">✔️</span>
                   <span className="ml-2">Open Source Contribution</span>
