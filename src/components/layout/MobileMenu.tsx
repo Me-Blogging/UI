@@ -22,15 +22,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <Link to="/" className="text-2xl font-medium" onClick={onClose}>
             Blog
           </Link>
-          <Link to="/projects" className="text-2xl font-medium" onClick={onClose}>
+          {/* <Link to="/projects" className="text-2xl font-medium" onClick={onClose}>
             Projects
-          </Link>
+          </Link> */}
           <Link to="/about" className="text-2xl font-medium" onClick={onClose}>
             About
           </Link>
-          <Link to="/newsletter" className="text-2xl font-medium" onClick={onClose}>
+          {/* <Link to="/newsletter" className="text-2xl font-medium" onClick={onClose}>
             Newsletter
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </div>
