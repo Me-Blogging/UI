@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await postApi.getPosts()
+        const response = await postApi.getPublishedPosts()
         setPosts(response.data)
       } catch (err) {
         setError('Failed to fetch posts')
